@@ -291,7 +291,10 @@ async def start(_, message):
 @app.on_callback_query(filters.regex("^appxlist$"))
 async def show_alphabet(client, query):
     keyboard = get_alphabet_keyboard()
-    await query.message.edit_text("𝐒𝐞𝐥𝐞𝐜𝐭 𝐀 𝐋𝐞𝐭𝐭𝐞𝐫 𝐓𝐨 𝐕𝐢𝐞𝐰 𝐀𝐩𝐩𝐬 ✨", reply_markup=keyboard)
+       try:
+       await query.message.edit_text("𝐒𝐞𝐥𝐞𝐜𝐭 𝐀 𝐋𝐞𝐭𝐭𝐞𝐫 𝐓𝐨 𝐕𝐢𝐞𝐰 𝐀𝐩𝐩𝐬 ✨", reply_markup=keyboard)
+   except MessageNotModified:
+       pass
 
 @app.on_callback_query(filters.regex("^alpha_"))
 async def show_apps_for_letter(client, query):
