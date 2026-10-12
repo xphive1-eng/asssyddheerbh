@@ -18,4 +18,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Run the Extractor module
-CMD ["sh", "-c", "python -m Extractor"]
+# Run the web server (for Render's port check) and the Extractor bot
+CMD ["sh", "-c", "python app.py & python -m Extractor"]
